@@ -6,9 +6,12 @@
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "Web App: Dotnet Build Debug",
-			"program": "${workspaceRoot}/src/Orchard.Web/bin/Debug/netcoreapp1.0/Orchard.Web.dll",
+			"program": "${workspaceRoot}/src/OrchardCore.Cms.Web/bin/Debug/netcoreapp3.0/OrchardCore.Cms.Web.dll",
 			"args": [],
-			"cwd": "${workspaceRoot}/src/Orchard.Web",
+			"cwd": "${workspaceRoot}/src/OrchardCore.Cms.Web",
+			"env": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			},
 			"stopAtEntry": false
 		},
 		{
@@ -17,16 +20,19 @@
 			"request": "launch",
 			"internalConsoleOptions": "openOnSessionStart",
 			"preLaunchTask": "Web App: Dotnet Build Debug",
-			"program": "${workspaceRoot}/src/Orchard.Web/bin/Debug/netcoreapp1.0/Orchard.Web.dll",
+			"program": "${workspaceRoot}/src/OrchardCore.Cms.Web/bin/Debug/netcoreapp3.0/OrchardCore.Cms.Web.dll",
 			"args": [],
-			"cwd": "${workspaceRoot}/src/Orchard.Web",
+			"cwd": "${workspaceRoot}/src/OrchardCore.Cms.Web",
+			"env": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			},
 			"stopAtEntry": false,
 			"launchBrowser": {
 				"enabled": true,
 				"args": "${auto-detect-url}",
 				"windows": {
 					"command": "cmd.exe",
-					"args": "/C start http://localhost:5000/admin"
+					"args": "/C start http://localhost:5000"
 				},
 				"osx": {
 					"command": "open"
@@ -40,10 +46,10 @@
 			"name": ".NET Core Launch (web release)",
 			"type": "coreclr",
 			"request": "launch",
-			"preLaunchTask": "Web App: Dotnet Build Release/admin",
-			"program": "${workspaceRoot}/src/Orchard.Web/bin/Release/netcoreapp1.0/Orchard.Web.dll",
+			"preLaunchTask": "Web App: Dotnet Build Release",
+			"program": "${workspaceRoot}/src/OrchardCore.Cms.Web/bin/Release/netcoreapp3.0/OrchardCore.Cms.Web.dll",
 			"args": [],
-			"cwd": "${workspaceRoot}/src/Orchard.Web",
+			"cwd": "${workspaceRoot}/src/OrchardCore.Cms.Web",
 			"stopAtEntry": false,
 			"launchBrowser": {
 				"enabled": true,
@@ -66,10 +72,8 @@
 			"request": "launch",
 			"internalConsoleOptions": "openOnSessionStart",
 			"preLaunchTask": "Web App: Dotnet Publish",
-			//"program": "${workspaceRoot}/src/Orchard.Web/bin/Debug/netcoreapp1.0/publish/Orchard.Web.dll",
-			"program": "${workspaceRoot}/../publish/Orchard.Web.dll",
+			"program": "${workspaceRoot}/../publish/OrchardCore.Cms.Web.dll",
 			"args": [],
-			//"cwd": "${workspaceRoot}/src/Orchard.Web/bin/Debug/netcoreapp1.0/publish",
 			"cwd": "${workspaceRoot}/../publish",
 			"stopAtEntry": false,
 			"launchBrowser": {
@@ -77,9 +81,22 @@
 				"args": "${auto-detect-url}",
 				"windows": {
 					"command": "cmd.exe",
-					"args": "/C start http://localhost:5000/admin"
+					"args": "/C start http://localhost:5000"
 				}
 			}
+		},
+		{
+			"name": "Gulp Debug",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": "${workspaceRoot}",
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"console": "internalConsole",
 		}
 	]
 }
